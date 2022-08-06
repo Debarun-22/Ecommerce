@@ -46,7 +46,7 @@ def register(request):
                 'user':user,
                 'domain':current_site,
                 'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':default_token_generator.make_token(user),
+                'token':default_token_generator.make_token(user), #using builtin token generator
             })
             to_email = email
             send_email = EmailMessage(mail_subject,message,to=[to_email])
